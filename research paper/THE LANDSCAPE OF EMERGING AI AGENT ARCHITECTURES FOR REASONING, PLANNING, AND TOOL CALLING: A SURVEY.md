@@ -18,7 +18,8 @@ What did I learn that I didn’t know before?
 ReACT, RAISE (Reasoning and Acting through Scratchpad(short-term memory) & Examples(long-term memory))
 * need to do self-evaluation
 
-ReAct limitations: will loop over again and again, thus need human interaction to improve its effectiveness
-RAISE limitations: if the agent role not very well defined, might hallucinate and perform tasks outside of its role
+* ReAct limitations: will loop over again and again, thus need human interaction to improve its effectiveness
+* RAISE limitations: if the agent role not very well defined, might hallucinate and perform tasks outside of its role
+
 ## Questions
 What don’t I understand yet?

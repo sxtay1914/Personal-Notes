@@ -20,6 +20,10 @@ What did I learn that I didn’t know before?
 * RAISE limitations: if the agent role not very well defined, might hallucinate and perform tasks outside of its role. Might also give wrong info. but can be solved via **fine-tuning** 
 * Reflexion: non-optimal solution, uses sliding window so limited by the tokens
 *  AutoGPT + P: selecting the wrong tools, getting stuck in loops, lack human interaction to modify plan during execution, illogical explorations
-*  LATS: uses more computational resources for search algorithm and self-reflection, no tool calling and complex reasoning. 
+*  LATS: uses more computational resources for search algorithm and self-reflection, no tool calling and complex reasoning.
+
+### Multi-Agent Architecture
+* 3 stages: planning -> execution -> evaluation
+* Team leadership, communication and dynamic team formation
 ## Questions
 What don’t I understand yet?

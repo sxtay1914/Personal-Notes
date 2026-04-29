@@ -8,9 +8,15 @@
 * within the container (gateway for each services)
 
 ### Architecture
+* intracluster
+* intercluster
+* before microservice
 
 ## What does it contain?
 * **auth** & **rate-limiting** 
 * analyse and take care of the backend outputs
 * proxy server
 * load-balancing
+* protocol translation
+* traffic management
+* developer logging

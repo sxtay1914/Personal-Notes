@@ -3,8 +3,8 @@
 * x: can cd into dir if dir name is known
 
 ### Change permissions
-** -> octal way (eg. chmod 677)
-** -> symbolic way (eg. chmod u+x)
+* -> octal way (eg. chmod 677)
+* -> symbolic way (eg. chmod u+x)
 
 ### Can you write without w set but not x?
 Yes, able to modify file's content but not able to ls

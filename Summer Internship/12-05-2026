@@ -1,0 +1,26 @@
+## Current innovations and breakthroughs, then compare with the actor-parity
+### AI-DRIVEN PROCESS AUTOMATION AND ITS IMPACT ON OPERATIONAL AGILITY AND EFFICIENCY
+* able to follow workflow is more important than being intelligent alone
+
+### PwC agent OS
+* an orchestrator framework
+* offers a switchboard to connect ai agents across different systems
+
+### Harness system in coding system (Claude)
+* tool search tool
+* programmatic tool calling
+* learning from examples
+
+### Building Effective AI Coding Agents for the Terminal: Scaffolding, Harness, Context Engineering, and Lessons Learned
+* Scaffolding to assemble the agents 
+* Harness runs every time after scaffolding (tool dispatch, manage context and enforce safety and manage context)
+
+### Mapping this to the actor - parity concept
+Scaffolding -> state machine activity
+Tools gating -> schema 
+Confidence scoring
+Audit emission
+State transition
+
+**Main Takeaway** Harness doesn’t limit what AI can think but limit what it can do and touch within a given activity state.
+

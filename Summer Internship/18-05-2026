@@ -1,0 +1,21 @@
+18-05
+Job log:
+* gather use cases 
+* also test the projection for list entries (v)
+
+Don’t look at MNCs
+## How MNCs closes the gap?
+* SAP (Bridging from the left): 
+    * Joule copilot & knowledge graph. 
+    * pro-code agents operate as Agent-to-agent (A2A) servers, Joule acts as A2A client
+    * Scaling strat: MCP gateway 
+* Atlassian (Bridging from left & right) 
+    * Rovo & teamwork graph
+    * Something similar to what we are trying to do: Rovo Agents are embedded directly into active collaboration surfaces within Jira Cloud. Rather than requiring a manual handoff, agents can be added directly to the Jira assignee field, @ mentioned in comments, or tied directly to workflow transitions and board columns.
+* Saleforce
+    * AgentForce and AgentScript 
+    * procedural instructions & natural language tgt in one dashboard
+* Microsoft 
+    * Copilot Studio and Agent-workflow synthesis
+        * Eg. In the first pattern, a Power Automate workflow provides the rigid, auditable framework for a business process, managing handoffs, branching logic, and system writes. When the process encounters a step requiring cognitive judgment—such as extracting data from inconsistently formatted supplier contracts—the workflow calls an "Agent Node". This node executes an inline or pre-configured agent, utilizing Work IQ to ground the model in the user’s Microsoft 365 context (including Teams, Outlook, and SharePoint) to complete the cognitive task before returning control to the deterministic workflow
+        * Eg.  How it handles high-stake task? In the second pattern, an autonomous agent handling an open-ended request invokes a cloud workflow as a tool to execute a high-stakes transaction safely. To protect system integrity, the workflow must meet strict structural constraints: it must begin with a "When an agent calls the flow" trigger, end with a "Respond to the agent" action, execute in real time, and return its payload within a strict 100-second window.

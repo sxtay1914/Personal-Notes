@@ -12,9 +12,9 @@ Tradeoffs:
 1. didn’t free up disk space
 2. can only be implemented in memory, hard to do on disk —> slow restart because need to rebuild the hashmap on every startup
 3. range queries are inefficient
-——————
-key: byte offset
-——————
+* ——————
+* key: byte offset
+* ——————
 
 ## SSTable file format
 What is it? the keys are sorted and exists only once

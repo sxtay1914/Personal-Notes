@@ -12,9 +12,9 @@ Tradeoffs:
 1. didn’t free up disk space
 2. can only be implemented in memory, hard to do on disk —> slow restart because need to rebuild the hashmap on every startup
 3. range queries are inefficient
-* ——————
-* key: byte offset
-* ——————
+——————
+key: byte offset
+——————
 
 ## SSTable file format
 What is it? the keys are sorted and exists only once
@@ -58,6 +58,40 @@ What is B-Tree?
 * balanced tree, has O(logN) depth
 * mutable, key-value similar to LSM tree
 * split into fixed-size pages that contain key and references, leaf page contains the data
+
+Comparing B-tree & LSM:
+* Generally B-tree is faster than LSM because it only has a few level of pages to check. However because of compaction strategy and Bloom filters in LSM, LSM is also pretty fast
+* Range queries faster on B-tree, because already sorted. LSM is also sorted but need to perform parallel checking on all segments and merge them together.
+* Write is better in LSM because of sequential writes, B-trees are random writes. However, when there is a spike in writes, LSM will have higher latency when its memtable is full. 
+    * What causes the memtable to be full? memtable is not written to the disk quickly. 
+
+SSD:
+**Store in pages, delete in blocks** (Block contain multiple pages) 
+* writes in pages, but delete in blocks
+* so some blocks contain valid & invalid pages mixed together. 
+* move the valid page to other blocks and delete the block containing the invalid blocks 
+Sequential writes better for garbage collection
+
+Write Amplification
+* total number of bytes written to disk / number of bytes intended to be written
+* LSM tree lower write amplification compared to B-Tree because B tree needs to write whole page while modifying whereas LSM tree don’t
+Effect of write amplification: 
+1. slower writes
+2. higher wear on SSD
+
+Fragmentation: 
+B-Tree has higher fragmentation because of random writes, whereas LSM tree has lesser because of compaction and sequential write
+
+Secondary index:
+1. sec index : ref primary key 
+2. sec index : data location (data store in heap files)
+Types of index:
+1. cluster index: which contains all data (referring to the primary index)
+2. convering index: contains some of the columns (some queries dont need to query table)
+
+## Significance of in-memory store:
+* its good not because there is little round trip to the disk, but because there is no conversion from memory store —> disk storage 
+
 
 Why are B-Trees popular?
 What tradeoff was accepted?

@@ -128,3 +128,7 @@ patch < diff_file ( dont have to specify target file)
 sed 's/\([0-9]\{2\}\)\/\([0-9]\{2\}\)\/\([0-9]\{4\}\)$/\3-\1-\2/' distros.txt
 — \3-\1-\2: refers to capture group 3 then 1 then 2, in this case it is year, month then day
 -------------- 
+
+## Check spelling
+1. aspell check filename: normal files
+2. aspell -H check filename: check HTML files

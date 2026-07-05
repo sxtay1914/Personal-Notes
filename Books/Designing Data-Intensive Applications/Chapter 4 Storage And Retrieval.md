@@ -93,6 +93,41 @@ Types of index:
 * its good not because there is little round trip to the disk, but because there is no conversion from memory store —> disk storage 
 
 
+# Data storage for analytics
+## What is difference between OLTP and OLAP?
+* OLTP involves single records
+* OLAP involves aggregation of large amount of data
+
+## Query engine?
+* convert sql queries into executions
+## Storage format?
+* determines how tables are stored as bytes 
+## Table format?
+* defines which data makes up the table
+## Data catalog?
+* defines which tables are in the db
+
+How to improve speed?
+## Column-oriented storage
+* usually is row-oriented storage. So during query, if there are many columns the amount of data loaded will be a lot. Storing data column wise and only loading the necessary data from the columns will save a lot of space
+
+## Column compression? 
+* store each distinct value in a column as bitmap, and only setting the bit if the row has it
+Eg. distinct value: 5
+
+### How to store efficiently?
+* use run-length encoding
+Eg. 0 0 0 1 1 1 : 3 1s, 3 1s.
+
+### Sorting on columns?
+* Why? faster query and better column compression using run-length encoding
+
+### How to write to column-oriented store?
+* write in bulk armortizes the cost of rewriting the columns 
+1. small individual writes absorbed by an in-memory buffer
+2. then merge with existing data and new columnar data is produced. (Obj storage best for this because modify in bulk) 
+
+
 Why are B-Trees popular?
 What tradeoff was accepted?
 What became slower?

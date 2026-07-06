@@ -1,4 +1,4 @@
-Chapter 4: Storage and retrieval
+# Chapter 4: Storage and retrieval
 
 ## Engineering principle: Optimise for the common case, not every case
 
@@ -6,7 +6,7 @@ Chapter 4: Storage and retrieval
 * When is it useful? updating, because append-only
 * When is it not useful? reading, has to scan the whole file
     * How do you speed up reading? use index
-        * Tradeoff of index: increases write overhead, consume additional disk space                                                                                                                                                                      
+        * Tradeoff of index: increases write overhead, consume additional disk space                                                                                                                                                               
 
 Tradeoffs:
 1. didn’t free up disk space
@@ -107,28 +107,54 @@ Types of index:
 ## Data catalog?
 * defines which tables are in the db
 
-How to improve speed?
+How to reduce the amount of data loaded into memory?
 ## Column-oriented storage
 * usually is row-oriented storage. So during query, if there are many columns the amount of data loaded will be a lot. Storing data column wise and only loading the necessary data from the columns will save a lot of space
 
 ## Column compression? 
-* store each distinct value in a column as bitmap, and only setting the bit if the row has it
+    * store each distinct value in a column as bitmap, and only setting the bit if the row has it
 Eg. distinct value: 5
 
 ### How to store efficiently?
-* use run-length encoding
+    * use run-length encoding
 Eg. 0 0 0 1 1 1 : 3 1s, 3 1s.
 
 ### Sorting on columns?
-* Why? faster query and better column compression using run-length encoding
+    * Why? faster query and better column compression using run-length encoding
 
 ### How to write to column-oriented store?
 * write in bulk armortizes the cost of rewriting the columns 
 1. small individual writes absorbed by an in-memory buffer
 2. then merge with existing data and new columnar data is produced. (Obj storage best for this because modify in bulk) 
 
+## Speed up not just by the amount of data loaded in but also by reducing CPU speed needed
+Interpreter (Normal approach)	Query Compilation	Vectorised Processing
+1. look at query plan	1. convert SQL queries —>  code --> machine code	1. process data column wise
+2. decide which operators to use	2. faster processing per row even though still need to process every row	
+3. do this for every row 		
 
+How to further improve queries?
+* use materialised aggregates known as data cubes
+
+## Multidimensional and full-text indexes
+* concatenated index
+
+## How about querying geospatial data?
+* convert 2d coordinate into single number
+* divide the space and group nearby points together
+
+## Full-text search?
+* use key-value with inverted index
+Eg. word: [documentID containing it]
+
+## Vector Embeddings?
+* types of vector embeddings?
+    * flat indexes: store the index as it is but slow to measure the distance
+    * inverted file indexes: use centroids to reduce the number of vectors to be compared
+    * HNSW indexes: multiple layers. node represents the vector and edge represents the distance to other vectors. Each layer has increasing more nodes
+￼
 Why are B-Trees popular?
 What tradeoff was accepted?
+
 What became slower?
 When not to use?

@@ -1,9 +1,10 @@
-# Format Text 
+Chapter 21 Format Text
 1. nl: number lines
 2. fold: wrap a line
 3. fmt: format document
 4. pr: paginate a page
-5. groff: 
+5. groff: turn plain text into well-formatted doc 
+6. ps2pdf: conver ps to pdf format
 ## Options for nl
 1. nl -b : numbering style for body
     * nl -b a file.txt: include line numbers for all 
@@ -33,3 +34,4 @@
 ## Options for groff
 short for g(runoff)
 * zcat file.gzip | groff -mandoc -T ascii
+    * if didn’t specify -T ascii, PostScript is output by default

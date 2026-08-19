@@ -4,8 +4,8 @@
 
 # Design Considerations
 ## How do you implement the sandbox? Is there any alternatives u have considered?
-* Filesystem confinement, the agent is only allowed to work in the file directory that the user has given access to, any ../ commands are restricted.
-* Write protection in place that forces the agents to edit only targeted regions of the files instead of overwriting the whole files 
+* Filesystem confinement (configuring file permission), the agent is only allowed to work in the file directory that the user has given access to, any ../ commands are restricted.
+* Write protection in place that forces the agents to edit only targeted regions of the files instead of overwriting the whole files (prefer append-only over modification)
 * Other alternatives:
   * spinning up Docker for each of the agents but will increase latency
   * OS level protection such as executing as low-level priviledged user

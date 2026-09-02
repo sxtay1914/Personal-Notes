@@ -1,3 +1,13 @@
+# An overview of what it is?
+* It is a preliminary agent harness that simulates the SDLC
+* There are 7 agents (Chief orchestrator, project manager, scrum master, 2 developers, 1 QA agent and 1 Code reviewer agent)
+* The orchestrator agent main job is to dispatch the required agents at each development stages and to coordinate the interactions between different agents
+* The user will input what they want to build, the chief orchestrators will first gather the requirements and clarify any assumptions.
+* PM will then be dispatched and it will break down the tasks into implementation plan
+* Scrum master will then assign the tasks to 2 developers
+* Human gate in between development and the testing phases. Users can approve or ask for improvement.
+* QA agent will then run the tests suites during the testing stage, will go back to development stage if test suites fail.
+* code reviewer will then review the code in terms of code maintainability. 
 # What problem does it solve?
 * enterprise engineers waste time on SDLC coordination
 * automate these tasks while keeping human in the loop, maximal agent coordination and minimal human interaction.
